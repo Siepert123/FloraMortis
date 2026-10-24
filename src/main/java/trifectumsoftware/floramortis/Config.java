@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package trifectumsoftware.floramortis;
 
 import java.io.File;
 

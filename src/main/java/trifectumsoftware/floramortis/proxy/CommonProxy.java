@@ -1,9 +1,12 @@
-package com.myname.mymodid;
+package trifectumsoftware.floramortis.proxy;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
+import trifectumsoftware.floramortis.Config;
+import trifectumsoftware.floramortis.FloraMartis;
+import trifectumsoftware.floramortis.Tags;
 
 public class CommonProxy {
 
@@ -12,8 +15,8 @@ public class CommonProxy {
     public void preInit(FMLPreInitializationEvent event) {
         Config.synchronizeConfiguration(event.getSuggestedConfigurationFile());
 
-        MyMod.LOG.info(Config.greeting);
-        MyMod.LOG.info("I am MyMod at version " + Tags.VERSION);
+        FloraMartis.LOG.info(Config.greeting);
+        FloraMartis.LOG.info("I am MyMod at version " + Tags.VERSION);
     }
 
     // load "Do your mod setup. Build whatever data structures you care about. Register recipes." (Remove if not needed)
