@@ -4,7 +4,7 @@ import java.io.File;
 
 import net.minecraftforge.common.config.Configuration;
 
-public class Config {
+public class FloraMortisConfig {
 
     public static String greeting = "Hello World";
 

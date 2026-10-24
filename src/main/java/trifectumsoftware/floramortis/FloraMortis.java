@@ -1,5 +1,6 @@
 package trifectumsoftware.floramortis;
 
+import net.minecraft.util.ResourceLocation;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -11,8 +12,8 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import trifectumsoftware.floramortis.proxy.CommonProxy;
 
-@Mod(modid = FloraMartis.MODID, version = Tags.VERSION, name = "Flora Mortis", acceptedMinecraftVersions = "[1.7.10]")
-public class FloraMartis {
+@Mod(modid = FloraMortis.MODID, version = Tags.VERSION, name = "Flora Mortis", acceptedMinecraftVersions = "[1.7.10]")
+public class FloraMortis {
 
     public static final String MODID = "flora_mortis";
     public static final Logger LOG = LogManager.getLogger(MODID);
@@ -39,4 +40,14 @@ public class FloraMartis {
     public void serverStarting(FMLServerStartingEvent event) {
         proxy.serverStarting(event);
     }
+
+	public static ResourceLocation resource(String path) {
+		return new ResourceLocation(MODID, path);
+	}
+	public static String resourceStr(String path) {
+		return MODID + ":" + path;
+	}
+	public static String lang(String path) {
+		return MODID + "." + path;
+	}
 }
