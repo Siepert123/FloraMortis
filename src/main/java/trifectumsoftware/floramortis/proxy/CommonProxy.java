@@ -7,15 +7,14 @@ import cpw.mods.fml.common.event.FMLServerStartingEvent;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChunkCoordinates;
 import trifectumsoftware.floramortis.FloraMortisConfig;
 import trifectumsoftware.floramortis.FloraMortis;
 import trifectumsoftware.floramortis.Tags;
-import trifectumsoftware.floramortis.init.BlockInit;
-import trifectumsoftware.floramortis.init.EntityInit;
-import trifectumsoftware.floramortis.init.ItemInit;
-import trifectumsoftware.floramortis.init.TileEntityInit;
+import trifectumsoftware.floramortis.init.*;
 import trifectumsoftware.floramortis.world.entity.pollinated.EntityPollinatedCow;
 import trifectumsoftware.floramortis.world.entity.pollinated.EntityPollinatedPig;
 
@@ -34,6 +33,7 @@ public class CommonProxy {
 		ItemInit.register();
 		TileEntityInit.register();
 		EntityInit.register();
+		PotionInit.register();
     }
 
     public void init(FMLInitializationEvent event) {}
@@ -59,20 +59,13 @@ public class CommonProxy {
 
 			@Override
 			public void processCommand(ICommandSender sender, String[] args) {
-				ChunkCoordinates cc = sender.getPlayerCoordinates();
-				final Entity entity;
-				switch (new Random().nextInt(2)) {
-					case 0:
-						entity = new EntityPollinatedPig(sender.getEntityWorld(), cc.posX, cc.posY, cc.posZ);
-						break;
-					case 1:
-						entity = new EntityPollinatedCow(sender.getEntityWorld(), cc.posX, cc.posY, cc.posZ);
-						break;
-					default:
-						throw new IllegalStateException("???");
+				if (sender instanceof EntityLivingBase) {
+					EntityLivingBase living = (EntityLivingBase) sender;
+					living.addPotionEffect(new PotionEffect(PotionInit.pollinated.id, 6000, 0, true));
+					sender.addChatMessage(new ChatComponentText("pollen"));
+				} else {
+					sender.addChatMessage(new ChatComponentText("player requirement"));
 				}
-				sender.getEntityWorld().spawnEntityInWorld(entity);
-				sender.addChatMessage(new ChatComponentText("spawned " + entity.getClass().getSimpleName()));
 			}
 
 			@Override

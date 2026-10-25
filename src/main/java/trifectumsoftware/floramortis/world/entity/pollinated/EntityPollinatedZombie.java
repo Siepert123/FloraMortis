@@ -7,7 +7,6 @@ public class EntityPollinatedZombie extends EntityPollinatedMob {
 	public EntityPollinatedZombie(World world) {
 		super(world);
 
-		this.getNavigator().setAvoidsWater(true);
 		this.setSize(0.6F, 1.8F);
 	}
 	public EntityPollinatedZombie(World world, double x, double y, double z) {

@@ -7,7 +7,6 @@ public class EntityPollinatedCow extends EntityPollinatedMob {
 	public EntityPollinatedCow(World world) {
 		super(world);
 
-		this.getNavigator().setAvoidsWater(true);
 		this.setSize(0.9F, 1.3F);
 	}
 	public EntityPollinatedCow(World world, double x, double y, double z) {

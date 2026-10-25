@@ -1,2 +1,12 @@
 tile.flora_mortis.test.name=Test
+
 item.flora_mortis.test.name=Tam DVD
+item.flora_mortis.spawn_pollinated_pig.name=Spawn Pollinated Pig
+item.flora_mortis.spawn_pollinated_cow.name=Spawn Pollinated Cow
+item.flora_mortis.spawn_pollinated_zombie.name=Spawn Pollinated Zombie
+
+entity.flora_mortis.PollinatedPig.name=Pollinated Pig
+entity.flora_mortis.PollinatedCow.name=Pollinated Cow
+entity.flora_mortis.PollinatedZombie.name=Pollinated Zombie
+
+potion.flora_mortis.pollinated=Pollinated

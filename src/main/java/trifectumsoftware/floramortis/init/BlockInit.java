@@ -9,7 +9,7 @@ public class BlockInit {
 	public static final BlockTest TEST = (BlockTest) new BlockTest()
 		.setBlockTextureName(FloraMortis.resourceStr("test"))
 		.setBlockName(FloraMortis.lang("test"))
-		.setCreativeTab(CreativeTabs.tabMisc);
+		.setCreativeTab(ItemInit.CREATIVE_TAB);
 
 	public static void register() {
 		GameRegistry.registerBlock(TEST, "test_block");
